@@ -1,0 +1,14 @@
+perl /home/obiorach/vcf2maf/vcf2maf.pl \
+  --input-vcf /home/obiorach/test-work-sarek/WES-test-result/annotation/mutect2/Tumour_vs_Normal/extra_Ann_Vep_result/Tumour_vs_Normal.mutect2.filtered_VEP.ann.vcf \
+  --output-maf /home/obiorach/test-work-sarek/WES-test-result/annotation/mutect2/Tumour_vs_Normal/extra_Ann_Vep_result/Tumour_vs_Normal.mutect2.filtered_VEP.ann.maf \
+  --tumor-id Patient_1_Tumour \
+  --normal-id Patient_1_Normal \
+  --vcf-tumor-id Patient_1_Tumour \
+  --vcf-normal-id Patient_1_Normal \
+  --vep-path /home/obiorach/ensembl-vep \
+  --vep-data ~/vep_cache \
+  --ref-fasta /home/obiorach/datasets/auxiliary_files_and_databases/hg19.fa \
+  --ncbi-build GRCh37 \
+  --species homo_sapiens \
+  --cache-version 112 \
+  --vep-overwrite
