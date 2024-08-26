@@ -1,0 +1,18 @@
+nextflow run nf-core/sarek -r 3.4.2 -profile docker \
+  --input samplesheet.csv \
+  --outdir /home/obiorach/test-work-sarek/Merged-WES-Results \
+  --genome hg19 \
+  --dbsnp /home/obiorach/whole-Exon-single-seq/ref-genome/known_sites.vcf/dbsnp_138.hg19.vcf.gz \
+  --known_indels /home/obiorach/whole-Exon-single-seq/ref-genome/known_indels.vcf/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz \
+  --max_cpus 20 \
+  --max_memory '30 GB' \
+  --wes \
+  --intervals /home/obiorach/whole-Exon-single-seq/ref-genome/exom_targets.bed/HyperExomeV2_primary_targets.hg19.bed \
+  --tools mutect2,strelka,vep \
+  --pon /home/obiorach/whole-Exon-single-seq/ref-genome/panel-of-normal/updated_Mutect2-exome-panel_vcf.vcf.gz \
+  --germline_resource /home/obiorach/whole-Exon-single-seq/ref-genome/germline-resource/renamed_gnomad.vcf.gz \
+  --vep_cache /home/obiorach/vep_cache \
+  --vep_species homo_sapiens \
+  --vep_genome GRCh37 \
+  --vep_cache_version 112 \
+  -c custom.config
