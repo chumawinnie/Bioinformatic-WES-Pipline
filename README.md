@@ -6,7 +6,7 @@
 # Bioinformatics WES Pipeline 🔬🧬📊💻🧪📈✨ 
 
 ## Overview
-This pipeline processes Whole-Exome Sequencing (WES) data to perform variant discovery, copy number variation (CNV) analysis, single nucleotide polymorphism (SNPs) detection, Indels and variant annotation. Complex-Biomakers such as Homologous Recombination Deficiency(HRD), HLA-Typing processing immune system markers (HLA genes), Epitope-prediction to process new antigen or protein (epitopes) for Immune cells. It integrates several bioinformatics tools to analyze tumor-normal paired samples for downstream interpretation.
+This pipeline processes Whole-Exome Sequencing (WES) data to perform variant discovery, copy number variation (CNV) analysis, single nucleotide polymorphism (SNPs) detection, Indels and variant annotation. Complex-Biomakers such as Homologous Recombination Deficiency(HRD), HLA-Typing processing immune system markers (HLA genes), Epitope-prediction to process new antigen or protein (epitopes) for Immune cells and Mutational-Signatures. It integrates several bioinformatics tools to analyze tumor-normal paired samples for downstream interpretation.
 
 The pipeline was designed to support:
 - **Somatic Variant Detection** (Mutect2)
