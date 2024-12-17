@@ -1,9 +1,8 @@
----
+
 
 ### Full Updated `README.md`
 
 
-```markdown
 # Bioinformatics WES Pipeline 🔬🧬📊💻🧪📈✨ 
 
 ## Overview
