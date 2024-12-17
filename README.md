@@ -1,2 +1,2 @@
-# bioinformatic-wgs-pipline
-Whole-Genome-Sequncing 🔬🧬📊💻🧪📈✨
+# bioinformatic-WES-pipline
+Whole-Exon-Sequncing 🔬🧬📊💻🧪📈✨
