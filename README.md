@@ -13,9 +13,12 @@ The pipeline was designed to support:
 - **Copy Number Variations (CNV)** (CNVkit and Control-FREEC)
 - **Loss of Heterozygosity (LOH)** (Control-FREEC)
 - **Single Nucleotide Polymorphisms (SNP)** analysis
+- **Sequenza**: Cellularity, Ploidy and HRD-calculation
 - **Variant Annotation** (VEP, vcf2maf)
 - **Functional Enrichment** (Gene Ontology, KEGG pathway)
 - **Homologous-Recombination Deficiency(HRD-LOH,TAI,LST) Sequenza-tool**
+- **Human-Leucocyte-Antigen** (HLA-Typing and OptiType)
+- **Epitope-Prediction**(pVAC-seq)
   
 This pipeline is structured to be reproducible and efficient for cancer genomics studies.
 
@@ -37,6 +40,8 @@ The pipeline requires the following tools and dependencies:
 - **Control-FREEC**: CNV and LOH detection.
 - **VEP**: Variant Effect Predictor for annotation.
 - **vcf2maf**: Convert VCF files to MAF format.
+- **Human-Leucocyte-Antigen** HLA-Typing and OptiType process immune system markers (HLA genes) to understand how their body recognizes and fights diseases.
+- **Epitope-Prediction** pVAC-seq process new antigen or protein (epitopes), for MHC_class1 & 2 that can trigger an immune response, helping to find targets for vaccines or cancer immunotherapy.
 
 ### Other Requirements
 - Reference genome (e.g., `hg19` or `GRCh37`).
