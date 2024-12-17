@@ -4,13 +4,12 @@
 
 ### Full Updated `README.md`
 
-Copy and paste this into your `README.md` file:
 
 ```markdown
-# Bioinformatics WES Pipeline
+# Bioinformatics WES Pipeline 🔬🧬📊💻🧪📈✨ 
 
 ## Overview
-This pipeline processes Whole-Exome Sequencing (WES) data to perform variant discovery, copy number variation (CNV) analysis, single nucleotide polymorphism (SNP) detection, and variant annotation. It integrates several bioinformatics tools to analyze tumor-normal paired samples for downstream interpretation.
+This pipeline processes Whole-Exome Sequencing (WES) data to perform variant discovery, copy number variation (CNV) analysis, single nucleotide polymorphism (SNP) detection, Homologous Recombination Deficiency(HRD) and variant annotation. It integrates several bioinformatics tools to analyze tumor-normal paired samples for downstream interpretation.
 
 The pipeline was designed to support:
 - **Somatic Variant Detection** (Mutect2)
@@ -156,25 +155,7 @@ perl vcf2maf.pl --input-vcf annotated_output.vcf --output-maf output.maf --ref-f
 For questions or issues, feel free to contact me at: **chumawinnie@gmail.com**
 ```
 
----
 
-### What This Includes:
-1. **All your pipeline steps**: Preprocessing, variant calling, CNVs, LOH, SNPs, and annotation.
-2. **Usage instructions**: Commands for running the scripts and tools.
-3. **Outputs**: Clear description of the results.
-4. **Workflow diagram** placeholder (you can add a diagram later).
-5. **Future plans**: Highlights TMB and mutation signature analysis.
-
----
-
-### What to Do Next:
-1. Paste this content into your `README.md` file.
-2. Save and push the changes to GitHub:
-   ```bash
-   git add README.md
-   git commit -m "Update README with full pipeline description"
-   git push origin master
-   ```
 
 
 
