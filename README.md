@@ -15,7 +15,8 @@ The pipeline was designed to support:
 - **Single Nucleotide Polymorphisms (SNP)** analysis
 - **Variant Annotation** (VEP, vcf2maf)
 - **Functional Enrichment** (Gene Ontology, KEGG pathway)
-
+- **Homologous-Recombination Deficiency(HRD-LOH,TAI,LST) Sequenza-tool**
+  
 This pipeline is structured to be reproducible and efficient for cancer genomics studies.
 
 ---
