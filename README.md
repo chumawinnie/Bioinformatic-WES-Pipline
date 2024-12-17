@@ -32,6 +32,7 @@ The pipeline requires the following tools and dependencies:
 - **BWA**: Align reads to the reference genome.
 - **Samtools**: Process and sort BAM files.
 - **Mutect2**: Somatic variant calling.
+- **Sequenza**: Cellularity, Ploidy and HRD-calculation
 - **CNVkit**: Copy Number Variation analysis.
 - **Control-FREEC**: CNV and LOH detection.
 - **VEP**: Variant Effect Predictor for annotation.
