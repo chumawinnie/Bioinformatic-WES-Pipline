@@ -32,7 +32,7 @@ The pipeline requires the following tools and dependencies:
 - **Perl 5+**
 - **R 4.4.2**
 - **Nextflow 24.10.2**
-- **Shell-Scripting**
+- **Shell-Scripting(Bash) 5.2**
 
 ### Bioinformatics Tools
 - **BWA**: Align reads to the reference genome.
