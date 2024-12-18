@@ -1,169 +1,221 @@
 
+---
 
-### Full Updated `README.md`
+# **Bioinformatics WES Pipeline** 💉🩸🧪🔬🧬💻📈📊✨  
 
+## **Overview**  
+This pipeline processes **Whole-Exome Sequencing (WES)** data for comprehensive cancer genomics analysis. It covers variant discovery, copy number variation (CNV), single nucleotide polymorphisms (SNPs), indel detection, and variant annotation. Additionally, the pipeline supports **complex biomarkers analysis** 🧪🧬✨💊🔍 such as:  
 
-# Bioinformatics WES Pipeline 🔬🧬📊💻🧪📈✨ 
+- **Homologous Recombination Deficiency (HRD)**  
+- **HLA Typing** for immune system markers  
+- **Epitope Prediction** for neoantigens
+- **Microsatellite Instability (MSI)**  
+- **Mutational Signature Detection**  
 
-## Overview
-This pipeline processes Whole-Exome Sequencing (WES) data to perform variant discovery, copy number variation (CNV) analysis, single nucleotide polymorphism (SNPs) detection, Indels and variant annotation. Complex-Biomakers such as Homologous Recombination Deficiency(HRD), HLA-Typing processing immune system markers (HLA genes), Epitope-prediction to process new antigen or protein (epitopes) for Immune cells and Mutational-Signatures. It integrates several bioinformatics tools to analyze tumor-normal paired samples for downstream interpretation.
-
-The pipeline was designed to support:
-- **Somatic Variant Detection** (Mutect2)
-- **Copy Number Variations (CNV)** (CNVkit and Control-FREEC)
-- **Loss of Heterozygosity (LOH)** (Control-FREEC)
-- **Single Nucleotide Polymorphisms (SNP)** analysis
-- **Sequenza**: Cellularity, Ploidy and HRD-calculation
-- **Variant Annotation** (VEP, vcf2maf)
-- **Functional Enrichment** (Gene Ontology, KEGG pathway)
-- **Homologous-Recombination Deficiency(HRD-LOH,TAI,LST) Sequenza-tool**
-- **Human-Leucocyte-Antigen** (HLA-Typing and OptiType)
-- **Epitope-Prediction**(pVAC-seq)
-  
-This pipeline is structured to be reproducible and efficient for cancer genomics studies.
+The pipeline integrates widely-used bioinformatics tools and supports tumor-normal paired samples for downstream interpretation, aiding molecular tumor boards and cancer research.
 
 ---
 
-## Requirements
-The pipeline requires the following tools and dependencies:
+## **Key Features**  ✨🔑📋💡
 
-### Programming Languages
-- **Python 3.8+**
-- **Perl 5+**
-- **R 4.4.2**
-- **Nextflow 24.10.2**
-- **Shell-Scripting(Bash) 5.2**
-
-### Bioinformatics Tools
-- **BWA**: Align reads to the reference genome.
-- **Samtools**: Process and sort BAM files.
-- **Mutect2**: Somatic variant calling.
-- **Sequenza**: Cellularity, Ploidy and HRD-calculation
-- **CNVkit**: Copy Number Variation analysis.
-- **Control-FREEC**: CNV and LOH detection.
-- **VEP**: Variant Effect Predictor for annotation.
-- **vcf2maf**: Convert VCF files to MAF format.
-- **Human-Leucocyte-Antigen** HLA-Typing and OptiType process immune system markers (HLA genes) to understand how their body recognizes and fights diseases.
-- **Epitope-Prediction** pVAC-seq process new antigen or protein (epitopes), for MHC_class1 & 2 that can trigger an immune response, helping to find targets for vaccines or cancer immunotherapy.
-
-### Other Requirements
-- Reference genome (e.g., `hg19` or `GRCh37`).
-- BED files for exome target intervals.
+- **Somatic Variant Detection** (Mutect2)  
+- **Copy Number Variations (CNV)**: CNVkit and Control-FREEC  
+- **Loss of Heterozygosity (LOH)**: Control-FREEC  
+- **Single Nucleotide Polymorphism (SNP)** detection  
+- **Cellularity and Ploidy Estimation**: Sequenza  
+- **HRD Analysis**: LOH, TAI, LST scores (Sequenza, scarHRD)  
+- **Variant Annotation**: VEP and VCF-to-MAF conversion
+- **Microsatellite Instability (MSI)**: MSIsensor-pro 
+- **Mutational Signature Analysis**: SigProfilerExtractor  
+- **Human Leukocyte Antigen (HLA) Typing**: OptiType  
+- **Epitope Prediction**: pVACseq for neoantigen discovery  
+- **Functional Enrichment Analysis**: Gene Ontology (GO), KEGG Pathways  
 
 ---
 
-## Pipeline Steps
+## **Requirements** 💻💻👨‍💻👩‍💻📟  
 
-### 1. **Pre-processing**
-- Align paired-end reads to the reference genome using **BWA**.
-- Sort and index the resulting BAM files with **Samtools**.
-- Mark duplicates and recalibrate base quality scores (optional).
+### **Programming Languages**  
+- 🐍 (Python) 3.8+  
+- 🐪 Perl 5+  
+- 📊R 4.4.2  
+- 🐚Bash Shell 5.2  
+- 🚀Nextflow 24.10.2
 
-### 2. **Somatic Variant Calling**
-- Use **Mutect2** (GATK) to identify somatic single nucleotide variants (SNVs) and indels between tumor and normal samples.
-- Generate VCF files with filtered variants.
+### **Bioinformatics Tools** 💻👨‍💻👩‍💻📟 🛠️🔧🪛⚙️
+1. **Preprocessing & Alignment**:
+   - Fastqc: Quality-control Processing 
+   - BWA: Align reads to the reference genome.  
+   - Samtools: Process and sort BAM files.  
 
-### 3. **Copy Number Variation (CNV) Analysis**
-- Use **CNVkit** to analyze CNVs:
-  - Detect gains and losses of genomic regions.
-  - Generate plots (scatter, diagram).
-- Run **Control-FREEC** for CNV and **Loss of Heterozygosity (LOH)** detection:
-  - Tumor-normal comparison for regions of allelic imbalance.
+3. **Variant Calling & Annotation**:  
+   - Mutect2: Detect somatic SNVs and indels.  
+   - VEP (Variant Effect Predictor): Annotate variants.  
+   - vcf2maf: Convert VCF files to MAF format.  
 
-### 4. **SNP Analysis**
-- Extract SNPs from the Mutect2 VCF files for detailed analysis.
+4. **Copy Number Variation (CNV)**:  
+   - CNVkit: CNV detection, scatter plots, and genome diagrams.  
+   - Control-FREEC: CNV and LOH analysis.  
 
-### 5. **Variant Annotation**
-- Annotate filtered variants using **VEP (Variant Effect Predictor)**.
-- Convert VCF files to MAF format for downstream analyses using **vcf2maf**.
+5. **HRD Analysis**:  
+   - Sequenza: Estimate tumor cellularity, ploidy, and HRD metrics.  
+   - scarHRD: Calculate LOH, TAI, and LST scores for HRD detection.  
 
-### 6. **Post-Processing and Functional Enrichment**
-- Perform **Gene Ontology (GO)** and **KEGG pathway** enrichment analysis on the identified variants.
+6. **Immune System Analysis**:  
+   - **OptiType**: HLA Typing to identify Class I HLA alleles.  
+   - **pVACseq**: Predict epitopes (neoantigens) for MHC Class I & II.  
+
+7. **Mutational Signature Analysis**:  
+   - **SigProfilerExtractor**: Extract and analyze mutational signatures.  
+
+### **Other Requirements**  
+- Reference genome: hg19 or GRCh37  
+- BED files: Target capture regions for exome sequencing  
 
 ---
 
-## Usage
+## **Pipeline Steps**  🪜➡️🔄📋
 
-### Step 1: Run Pre-processing and Variant Calling
+### **1. Pre-processing**  
+- Align paired-end reads to the reference genome using **BWA**.  
+- Sort and index BAM files using **Samtools**.  
+- Mark duplicates and recalibrate quality scores using **Picard**.  
+
+### **2. Somatic Variant Calling**  
+- Detect **somatic SNVs** and **indels** using **Mutect2**.  
+- Filter low-confidence variants and generate a clean **VCF file**.  
+
+### **3. Copy Number Variation (CNV) Analysis**  
+- **CNVkit**:  
+  - Detect gains and losses of genomic regions.  
+  - Generate scatter plots and diagrams for CNVs.  
+- **Control-FREEC**:  
+  - Perform CNV detection and **LOH** analysis.  
+  - Identify allelic imbalances in tumor-normal samples.
+
+  ### **4. MSIsensor-pro(MSI)**
+- **MSIsensor-pro**:
+  - Detect Microsatellite Instability (MSI)
+  - Determines whether a tumor is microsatellite stable (MSS)
+
+### **5. HRD Analysis**  
+- **Sequenza**: Estimate tumor cellularity and ploidy.  
+- **scarHRD**:  
+   - Calculate metrics like **LOH (Loss of Heterozygosity)**, **TAI (Telomeric Allelic Imbalance)**, and **LST (Large-scale Transitions)**.  
+   - These metrics quantify **Homologous Recombination Deficiency (HRD)**, a key biomarker in DNA repair-deficient tumors.  
+
+### **6. HLA Typing**  
+- **OptiType**: Analyze immune system HLA alleles from sequencing data to identify Class I HLA genes (e.g., HLA-A, HLA-B).  
+
+### **7. Epitope Prediction**  
+- **pVACseq**:  
+   - Predict neoantigens (epitopes) that bind to **MHC Class I & II** molecules.  
+   - Helps identify targets for cancer vaccines or immunotherapies.  
+
+### **8. Mutational Signature Analysis**  
+- **SigProfilerExtractor**: Analyze mutational patterns to identify **mutation signatures** associated with processes like:  
+  - Aging  
+  - Smoking  
+  - DNA repair defects  
+
+### **9. Variant Annotation**  
+- Annotate variants using **VEP**.  
+- Convert annotated VCF files to MAF format using **vcf2maf**.  
+
+### **10. Functional Enrichment**  
+- Perform **Gene Ontology (GO)** and **KEGG pathway** analysis on annotated gene lists.  
+
+---
+
+## **Usage**  📖⚙️🛠️💡
+
+### **Step 1: Pre-processing and Variant Calling**  
 ```bash
-bash merged-sample-WES.sh
-bash single-sample-WES.sh
-```
+bash merged-sample-WES.sh  
+bash single-sample-WES.sh  
+```  
 
-### Step 2: Copy Number Variation (CNV) Analysis
-For CNVkit:
+### **Step 2: CNV Analysis**  
+
+**CNVkit**:  
 ```bash
-cnvkit.py batch Tumor.bam -n Normal.bam -t targets.bed --scatter --diagram
+cnvkit.py batch Tumor.bam -n Normal.bam -t targets.bed --scatter --diagram  
 ```
-
-For Control-FREEC:
-- Configure your Control-FREEC `.conf` file.
-- Run Control-FREEC:
+**Control-FREEC**:  
 ```bash
-freec -conf controlfreec.conf
-```
+freec -conf controlfreec.conf  
+```   
 
-### Step 3: Variant Annotation
-Annotate VCF files with VEP:
+### **Step 3: **MSIsensor-pro**
 ```bash
-vep --input_file Tumor_vs_Normal.vcf --output_file annotated_output.vcf --species homo_sapiens --assembly GRCh37
+msisensor-pro msi \
+  -d reference.microsatellites.bed \
+  -t Tumor.bam \
+  -n Normal.bam \
+  -o output_prefix \
+  -b bed_file_of_interest.bed \
+  -c 10
 ```
 
-Convert VCF to MAF:
+ 
+
+### **Step 4: HRD Analysis**  
+**Sequenza**:  
 ```bash
-perl vcf2maf.pl --input-vcf annotated_output.vcf --output-maf output.maf --ref-fasta hg19.fa
-```
+Rscript sequenza_analysis.R  
+```  
+
+### **Step 5: HLA Typing and Epitope Prediction**  
+```bash
+python OptiTypePipeline.py  
+pvacseq run input.vcf output_dir hg19  
+```  
+
+### **Step 6: Variant Annotation**  
+**VEP**:  
+```bash
+vep --input_file input.vcf --output_file annotated_output.vcf --species homo_sapiens --assembly GRCh37  
+```  
+**VCF to MAF**:  
+```bash
+perl vcf2maf.pl --input-vcf annotated_output.vcf --output-maf output.maf --ref-fasta hg19.fa  
+```  
 
 ---
 
-## Outputs
+## **Outputs**  📖💡📈📊✨
 
-1. **Variant Calling**:
-   - Filtered somatic variants (VCF).
-   - Summary statistics.
-
-2. **CNV Analysis**:
-   - CNV plots (`.png`, `.pdf`).
-   - CNV calls (`.cns`, `.cnr` files).
-
-3. **LOH Analysis**:
-   - Regions of allelic imbalance.
-
-4. **Annotation**:
-   - Annotated VCF files.
-   - MAF files for downstream analysis.
-
-5. **Reports**:
-   - Gene lists for functional enrichment (GO, KEGG).
+1. **Variant Calling**: Filtered VCF files and stats  
+2. **CNV Analysis**: CNV plots (.png, .pdf) and call files  
+3. **LOH Analysis**: Regions of allelic imbalance
+4. **MSIsensor-pro**: Detect Microsatellite Instability (MSI)
+5. **HRD Metrics**: LOH, TAI, and LST scores  
+6. **HLA Typing**: HLA alleles list  
+7. **Epitope Prediction**: Neoantigen lists  
+8. **Mutational Signatures**: Signature plots and matrices  
+9. **Annotation**: Annotated VCF and MAF files  
 
 ---
 
-## Workflow Diagram
-
-![Pipeline Workflow](link_to_diagram.png)
-
----
-
-## Future Plans
-- Integrate Tumor Mutational Burden (TMB) calculation.
-- Add tools for **mutation signature analysis** (e.g., SigProfilerExtractor).
+## **Future Plans**  📅🔮➡️📈📊✨
+- **Tumor Mutational Burden (TMB)** calculation  
+- **Neoepitope Presentation Analysis**  
+- Support for RNA-seq data integration  
 
 ---
 
-## References
-- GATK: https://gatk.broadinstitute.org
-- CNVkit: https://cnvkit.readthedocs.io
-- Control-FREEC: http://boevalab.com/FREEC/
-- VEP: https://www.ensembl.org/info/docs/tools/vep/index.html
+## **References**  📖💡
+- GATK: [GATK Documentation](https://gatk.broadinstitute.org)  
+- CNVkit: [CNVkit Docs](https://cnvkit.readthedocs.io)
+- Sequenza:[Sequenza Documentation](https://bitbucket.org/sequenzatools/sequenza/src/chemins/)
+- Control-FREEC: [FREEC](http://boevalab.com/FREEC/)  
+- VEP: [VEP Documentation](https://www.ensembl.org/info/docs/tools/vep/index.html)  
+- SigProfiler: [SigProfilerExtractor](https://www.mathworks.com/help/bioinfo/ug/sigprofiler-extractor.html)
+- Next-Flow-Nfcore: [Nfcore-piplines](https://nf-co.re/join)
 
 ---
 
-## Contact
-For questions or issues, feel free to contact me at: **chumawinnie@gmail.com**
-```
+## **Contact**  📞📧🤝💬
+For inquiries or issues, contact me at: **chumawinnie@gmail.com**  
 
-
-
-
-
-
+---  
