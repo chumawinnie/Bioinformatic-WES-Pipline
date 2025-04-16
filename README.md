@@ -70,7 +70,7 @@ The pipeline integrates widely-used bioinformatics tools and supports tumor-norm
 7. **Mutational Signature Analysis**:  
    - **SigProfilerExtractor**: Extract and analyze mutational signatures.
      
-8. - **Tumor Mutational Burden**:
+8. **Tumor Mutational Burden**:
    - **Tumor Mutational Burden**: calculate / measures the total number of somatic mutations per megabase (Mb) 
 
 ### **Other Requirements**  
