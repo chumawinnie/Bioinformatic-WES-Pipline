@@ -10,7 +10,8 @@ This pipeline processes **Whole-Exome Sequencing (WES)** data for comprehensive 
 - **HLA Typing** for immune system markers  
 - **Epitope Prediction** for neoantigens
 - **Microsatellite Instability (MSI)**  
-- **Mutational Signature Detection**  
+- **Mutational Signature Detection**
+- **Tumour Mutational Burden**
 
 The pipeline integrates widely-used bioinformatics tools and supports tumor-normal paired samples for downstream interpretation, aiding molecular tumor boards and cancer research.
 
@@ -26,6 +27,7 @@ The pipeline integrates widely-used bioinformatics tools and supports tumor-norm
 - **HRD Analysis**: LOH, TAI, LST scores (Sequenza, scarHRD)  
 - **Variant Annotation**: VEP and VCF-to-MAF conversion
 - **Microsatellite Instability (MSI)**: MSIsensor-pro 
+- **Tumor Mutational Burden** : python custom script 
 - **Mutational Signature Analysis**: SigProfilerExtractor  
 - **Human Leukocyte Antigen (HLA) Typing**: OptiType  
 - **Epitope Prediction**: pVACseq for neoantigen discovery  
@@ -66,7 +68,9 @@ The pipeline integrates widely-used bioinformatics tools and supports tumor-norm
    - **pVACseq**: Predict epitopes (neoantigens) for MHC Class I & II.  
 
 7. **Mutational Signature Analysis**:  
-   - **SigProfilerExtractor**: Extract and analyze mutational signatures.  
+   - **SigProfilerExtractor**: Extract and analyze mutational signatures.
+     
+8. - **Tumor Mutational Burden**: calculate / measures the total number of somatic mutations per megabase (Mb) 
 
 ### **Other Requirements**  
 - Reference genome: hg19 or GRCh37  
@@ -98,31 +102,36 @@ The pipeline integrates widely-used bioinformatics tools and supports tumor-norm
   - Detect Microsatellite Instability (MSI)
   - Determines whether a tumor is microsatellite stable (MSS)
 
-### **5. HRD Analysis**  
+### **5. Tumor Mutational Burden**
+- **Tumor Mutational Burden**:
+  - calculate total number of mutation per mergabase (tmb)
+  - Determines whether a tumor is high or low 
+
+### **6. HRD Analysis**  
 - **Sequenza**: Estimate tumor cellularity and ploidy.  
 - **scarHRD**:  
    - Calculate metrics like **LOH (Loss of Heterozygosity)**, **TAI (Telomeric Allelic Imbalance)**, and **LST (Large-scale Transitions)**.  
    - These metrics quantify **Homologous Recombination Deficiency (HRD)**, a key biomarker in DNA repair-deficient tumors.  
 
-### **6. HLA Typing**  
+### **7. HLA Typing**  
 - **OptiType**: Analyze immune system HLA alleles from sequencing data to identify Class I HLA genes (e.g., HLA-A, HLA-B).  
 
-### **7. Epitope Prediction**  
+### **8. Epitope Prediction**  
 - **pVACseq**:  
    - Predict neoantigens (epitopes) that bind to **MHC Class I & II** molecules.  
    - Helps identify targets for cancer vaccines or immunotherapies.  
 
-### **8. Mutational Signature Analysis**  
+### **9. Mutational Signature Analysis**  
 - **SigProfilerExtractor**: Analyze mutational patterns to identify **mutation signatures** associated with processes like:  
   - Aging  
   - Smoking  
   - DNA repair defects  
 
-### **9. Variant Annotation**  
+### **10. Variant Annotation**  
 - Annotate variants using **VEP**.  
 - Convert annotated VCF files to MAF format using **vcf2maf**.  
 
-### **10. Functional Enrichment**  
+### **11. Functional Enrichment**  
 - Perform **Gene Ontology (GO)** and **KEGG pathway** analysis on annotated gene lists.  
 
 ---
