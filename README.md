@@ -11,7 +11,7 @@ This pipeline processes **Whole-Exome Sequencing (WES)** data for comprehensive 
 - **Epitope Prediction** for neoantigens
 - **Microsatellite Instability (MSI)**  
 - **Mutational Signature Detection**
-- **Tumour Mutational Burden**
+- **Tumor Mutational Burden**
 
 The pipeline integrates widely-used bioinformatics tools and supports tumor-normal paired samples for downstream interpretation, aiding molecular tumor boards and cancer research.
 
@@ -70,7 +70,8 @@ The pipeline integrates widely-used bioinformatics tools and supports tumor-norm
 7. **Mutational Signature Analysis**:  
    - **SigProfilerExtractor**: Extract and analyze mutational signatures.
      
-8. - **Tumor Mutational Burden**: calculate / measures the total number of somatic mutations per megabase (Mb) 
+8. - **Tumor Mutational Burden**:
+   - **Tumor Mutational Burden**: calculate / measures the total number of somatic mutations per megabase (Mb) 
 
 ### **Other Requirements**  
 - Reference genome: hg19 or GRCh37  
